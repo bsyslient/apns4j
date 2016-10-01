@@ -8,6 +8,10 @@
     <version>1.1.0</version>
 </dependency>
 
+```
+
+```
+
 //Step 1
 ApnsChannelFactory apnsChannelFactory = Apns4j.newChannelFactoryBuilder()
 .keyStoreMeta("${path to your keystore}")
