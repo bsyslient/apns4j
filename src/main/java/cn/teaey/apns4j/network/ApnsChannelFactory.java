@@ -16,26 +16,28 @@
  *
  */
 
-package cn.teaey.apns4j.protocol;
+package cn.teaey.apns4j.network;
 
 /**
- * @author teaey
- * @since 1.0.0
+ * @author teaey(xiaofei.wxf)
+ * @since 1.0.3
  */
-public class InvalidDeviceTokenException extends RuntimeException {
-    /**
-     * <p>Constructor for InvalidDeviceTokenException.</p>
-     */
-    public InvalidDeviceTokenException() {
-        super();
+public final class ApnsChannelFactory {
+    private final SecuritySocketFactory securitySocketFactory;
+
+    public ApnsChannelFactory(SecuritySocketFactory securitySocketFactory) {
+        this.securitySocketFactory = securitySocketFactory;
     }
 
-    /**
-     * <p>Constructor for InvalidDeviceTokenException.</p>
-     *
-     * @param msg a {@link String} object.
-     */
-    public InvalidDeviceTokenException(String msg) {
-        super(msg);
+    public SecuritySocketFactory getSecuritySocketFactory() {
+        return securitySocketFactory;
+    }
+
+    public ApnsChannel newChannel() {
+        return new ApnsChannel(this.securitySocketFactory);
+    }
+
+    public ApnsChannel newChannel(int tryTimes) {
+        return new ApnsChannel(this.securitySocketFactory, tryTimes);
     }
 }

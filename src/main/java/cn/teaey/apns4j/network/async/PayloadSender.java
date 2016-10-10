@@ -16,26 +16,28 @@
  *
  */
 
-package cn.teaey.apns4j.protocol;
+package cn.teaey.apns4j.network.async;
 
 /**
  * @author teaey
  * @since 1.0.0
  */
-public class InvalidDeviceTokenException extends RuntimeException {
+public interface PayloadSender<T> {
     /**
-     * <p>Constructor for InvalidDeviceTokenException.</p>
+     * <p>send.</p>
+     *
+     * @param deviceTokenBytes an array of byte.
+     * @param payload          a T object.
+     * @return feture
      */
-    public InvalidDeviceTokenException() {
-        super();
-    }
+    ApnsFuture send(byte[] deviceTokenBytes, T payload);
 
     /**
-     * <p>Constructor for InvalidDeviceTokenException.</p>
+     * <p>send.</p>
      *
-     * @param msg a {@link String} object.
+     * @param deviceTokenString a {@link String} object.
+     * @param payload           a T object.
+     * @return feture
      */
-    public InvalidDeviceTokenException(String msg) {
-        super(msg);
-    }
+    ApnsFuture send(String deviceTokenString, T payload);
 }

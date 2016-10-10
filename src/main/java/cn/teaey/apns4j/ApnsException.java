@@ -16,26 +16,28 @@
  *
  */
 
-package cn.teaey.apns4j.protocol;
+package cn.teaey.apns4j;
 
 /**
- * @author teaey
- * @since 1.0.0
+ * @author xiaofei.wxf
  */
-public class InvalidDeviceTokenException extends RuntimeException {
-    /**
-     * <p>Constructor for InvalidDeviceTokenException.</p>
-     */
-    public InvalidDeviceTokenException() {
-        super();
+public class ApnsException extends RuntimeException {
+    public ApnsException() {
     }
 
-    /**
-     * <p>Constructor for InvalidDeviceTokenException.</p>
-     *
-     * @param msg a {@link String} object.
-     */
-    public InvalidDeviceTokenException(String msg) {
-        super(msg);
+    public ApnsException(String message) {
+        super(message);
+    }
+
+    public ApnsException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public ApnsException(Throwable cause) {
+        super(cause);
+    }
+
+    public ApnsException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
     }
 }

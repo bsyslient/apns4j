@@ -16,26 +16,30 @@
  *
  */
 
-package cn.teaey.apns4j.protocol;
+package cn.teaey.apns4j.network;
+
+import java.io.Closeable;
 
 /**
  * @author teaey
  * @since 1.0.0
  */
-public class InvalidDeviceTokenException extends RuntimeException {
+public interface Channel extends Closeable {
     /**
-     * <p>Constructor for InvalidDeviceTokenException.</p>
+     * Writes <code>data.length</code> bytes from the specified byte array
+     * to this connection
+     *
+     * @param data an array of byte.
      */
-    public InvalidDeviceTokenException() {
-        super();
-    }
+    void send(byte[] data);
 
     /**
-     * <p>Constructor for InvalidDeviceTokenException.</p>
+     * Reads some number of bytes from the connection and stores them into
+     * the buffer array <code>data</code>. The number of bytes actually read is
+     * returned as an integer.
      *
-     * @param msg a {@link String} object.
+     * @param data an array of byte.
+     * @return a int.
      */
-    public InvalidDeviceTokenException(String msg) {
-        super(msg);
-    }
+    int recv(byte[] data);
 }

@@ -16,26 +16,19 @@
  *
  */
 
-package cn.teaey.apns4j.protocol;
+package cn.teaey.apns4j.network.async;
 
 /**
  * @author teaey
  * @since 1.0.0
  */
-public class InvalidDeviceTokenException extends RuntimeException {
+public class AsyncServiceShutdownException extends RuntimeException {
     /**
-     * <p>Constructor for InvalidDeviceTokenException.</p>
-     */
-    public InvalidDeviceTokenException() {
-        super();
-    }
-
-    /**
-     * <p>Constructor for InvalidDeviceTokenException.</p>
+     * <p>Constructor for AsyncServiceShutdownException.</p>
      *
      * @param msg a {@link String} object.
      */
-    public InvalidDeviceTokenException(String msg) {
+    public AsyncServiceShutdownException(String msg) {
         super(msg);
     }
 }

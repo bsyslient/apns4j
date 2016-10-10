@@ -16,26 +16,38 @@
  *
  */
 
-package cn.teaey.apns4j.protocol;
+package cn.teaey.apns4j.keystore;
 
 /**
  * @author teaey
  * @since 1.0.0
  */
-public class InvalidDeviceTokenException extends RuntimeException {
+public class InvalidKeyStoreException extends Exception {
     /**
-     * <p>Constructor for InvalidDeviceTokenException.</p>
+     * <p>Constructor for InvalidKeyStoreException.</p>
+     *
+     * @param message a {@link String} object.
      */
-    public InvalidDeviceTokenException() {
-        super();
+    public InvalidKeyStoreException(String message) {
+        super(message);
     }
 
     /**
-     * <p>Constructor for InvalidDeviceTokenException.</p>
+     * <p>Constructor for InvalidKeyStoreException.</p>
      *
-     * @param msg a {@link String} object.
+     * @param message a {@link String} object.
+     * @param cause   a {@link Exception} object.
      */
-    public InvalidDeviceTokenException(String msg) {
-        super(msg);
+    public InvalidKeyStoreException(String message, Exception cause) {
+        super(message, cause);
+    }
+
+    /**
+     * <p>Constructor for InvalidKeyStoreException.</p>
+     *
+     * @param cause a {@link Exception} object.
+     */
+    public InvalidKeyStoreException(Exception cause) {
+        super(cause);
     }
 }
