@@ -28,7 +28,7 @@ ApnsPayload apnsPayload = Apns4j.newPayload()
         .sound("default");
 
 //Step 4 send via channel
-apnsChannel.send(${target device token}, apnsPayload);
+apnsChannel.send("${target device token}", apnsPayload);
 
 //Step 5 in the end, apnsChannel can be Recycle and Reuse 
 apnsChannel.close();
